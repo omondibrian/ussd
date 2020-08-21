@@ -1,9 +1,9 @@
-const africastalking = require("africastalking")(credentials);
 exports.airtime = (request, res) => {
-  const credentials = {
-    apiKey: "b7c617e08efbbab9ea9b2c645780dbf20e917f5530a932a9d74ac010f9f0293f", // use your sandbox app API key for development in the test environment
-    username: "sandbox", // use 'sandbox' for development in the test environment
-  };
+    const credentials = {
+        apiKey: "b7c617e08efbbab9ea9b2c645780dbf20e917f5530a932a9d74ac010f9f0293f", // use your sandbox app API key for development in the test environment
+        username: "sandbox", // use 'sandbox' for development in the test environment
+    };
+    const africastalking = require("africastalking")(credentials);
 
   // Initialize a service e.g. Airtime
   const airtime = africastalking.AIRTIME;
