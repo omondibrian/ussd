@@ -30,24 +30,19 @@ app.post("/", (req, res) => {
     // Business logic for first level response
     case "":
       response =
-        "CON Welcome rayan hasomi. What will you like to do today? \n  1. enda malindi \n 2. piga rayan";
+        "CON Welcome Buy airtime for \n 1. Buy for this Number \n 2.Buy for Another Number";
       break;
 
     case "1":
       response =
-        "CON select an account option \n 1. Check account balance \n 2. Account number";
+        "CON Enter Airtime Amount \n ";
       break;
 
     // Business logic for second level response
     case "2":
-      response = `END rayan achapwe`;
+      response = `CON Enter Phone Number For the receipent`;
       break;
 
-    case "1*1":
-      response = "END your account balance is $100";
-      break;
-    case "1*2":
-      response = "poa basi";
   }
 
   //sending response as plain text
