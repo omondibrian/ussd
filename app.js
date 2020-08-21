@@ -1,13 +1,11 @@
 const express = require("express");
 let app = express();
-
-//parse form body
-let bodyParser = require("body-parser");
+const { airtime } = require("./routes/airtime");
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 // parse application/json
-app.use(bodyParser.json());
-
+app.use(express.json());
+app.use("/airtime", airtime);
 app.get("/", (req, res) => {
   res.status(200).send("NodeJs USSD example - Africa's talking");
 });
@@ -53,10 +51,7 @@ app.post("/", (req, res) => {
   }
 
   //sending response as plain text
-  res
-    .header("Content-type: text/plain")
-    .status(200)
-    .send(response);
+  res.header("Content-type: text/plain").status(200).send(response);
 });
 
 let port = process.env.PORT || 3000;
