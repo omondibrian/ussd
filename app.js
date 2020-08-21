@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
 
     // Business logic for second level response
     case "2":
-      response = `END Your phone number is ${phone}`;
+      response = `END rayan achapwe`;
       break;
 
     case "1*1":
