@@ -32,7 +32,7 @@ app.post("/", (req, res) => {
     // Business logic for first level response
     case "":
       response =
-        "CON Welcome to Bank of Favour. What will you like to do today? \n  1. Manage account \n 2. Check phone number";
+        "CON Welcome rayan hasomi. What will you like to do today? \n  1. enda malindi \n 2. piga rayan";
       break;
 
     case "1":
@@ -49,7 +49,7 @@ app.post("/", (req, res) => {
       response = "END your account balance is $100";
       break;
     case "1*2":
-      response = "END your account number is 0023478493";
+      response = "poa basi";
   }
 
   //sending response as plain text
