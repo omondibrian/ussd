@@ -34,19 +34,21 @@ app.post("/", (req, res) => {
       break;
 
     case "1":
-      response =
-        "CON Enter Airtime Amount \n ";
+      response = "CON Enter Airtime Amount \n ";
       break;
 
     // Business logic for second level response
     case "2":
       response = `CON Enter Phone Number For the receipent`;
       break;
-
   }
-  const phoneNumberRegEx = new RegExp('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')
-  if(phoneNumberRegEx.test(text)){
-    response = "CON Enter Amount"
+  const phoneNumberRegEx = new RegExp(
+    "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$"
+  );
+  if (text !== "2" && phoneNumberRegEx.test(text)) {
+    response = "CON Enter Amount";
+  } else {
+    response = "END invalid response";
   }
   //sending response as plain text
   res.header("Content-type: text/plain").status(200).send(response);
