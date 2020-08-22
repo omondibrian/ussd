@@ -47,9 +47,7 @@ app.post("/", (req, res) => {
   );
   if (text !== "2" && phoneNumberRegEx.test(text)) {
     response = "CON Enter Amount";
-  } else {
-    response = "END invalid response";
-  }
+  } 
   //sending response as plain text
   res.header("Content-type: text/plain").status(200).send(response);
 });
