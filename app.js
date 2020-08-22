@@ -45,7 +45,7 @@ app.post("/", (req, res) => {
   const phoneNumberRegEx = new RegExp(
     "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$"
   );
-  if (text !== "2" && phoneNumberRegEx.test(text)) {
+  if (!response && phoneNumberRegEx.test(text)) {
     response = "CON Enter Amount";
   } 
   //sending response as plain text
