@@ -26,30 +26,25 @@ app.post("/", async (req, res) => {
   //init response
   let response = null;
 
-  switch (text) {
-    // Business logic for first level response
-    case "":
-      response =
-        "CON Welcome Buy airtime for \n 1. Buy for this Number \n 2.Buy for Another Number";
-      break;
-
-    case "1":
-      response = "CON Enter Airtime Amount \n ";
-      break;
-
-    // Business logic for second level response
-    case "1*1":
-      response = await sendAirtime()
-    case "2":
-      response = `CON Enter Phone Number For the receipent`;
-      break;
+  if (text === "") {
+    response =
+      "CON Welcome Buy airtime for \n 1. Buy for this Number \n 2.Buy for Another Number";
+  }
+  if (text === "1") {
+    response = "CON Enter Airtime Amount \n ";
+  }
+  if (text === "1*1") {
+    response = await sendAirtime();
+  }
+  if (text == "2") {
+    response = `CON Enter Phone Number For the receipent`;
   }
   const phoneNumberRegEx = new RegExp(
     "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$"
   );
   if (!response && phoneNumberRegEx.test(text)) {
     response = "CON Enter Amount";
-  } 
+  }
   //sending response as plain text
   res.header("Content-type: text/plain").status(200).send(response);
 });
