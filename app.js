@@ -1,17 +1,17 @@
 const express = require("express");
 let app = express();
-const { airtime } = require("./routes/airtime");
+const { sendAirtime } = require("./routes/airtime");
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // parse application/json
 app.use(express.json());
-app.use("/airtime", airtime);
+// app.use("/airtime", airtime);
 app.get("/", (req, res) => {
   res.status(200).send("NodeJs USSD example - Africa's talking");
 });
 
 //post request
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
   /*
     Here we are recieving the body params from Africa's talking
  */
@@ -38,6 +38,8 @@ app.post("/", (req, res) => {
       break;
 
     // Business logic for second level response
+    case "1*1":
+      response = await sendAirtime()
     case "2":
       response = `CON Enter Phone Number For the receipent`;
       break;
