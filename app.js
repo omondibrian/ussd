@@ -34,7 +34,7 @@ app.post("/", async (req, res) => {
     response = "CON Enter Airtime Amount \n ";
   }
   if (text === "1*1") {
-    response = await sendAirtime();
+    response = await sendAirtime(phone);
   }
   if (text == "2") {
     response = `CON Enter Phone Number For the receipent`;
