@@ -44,7 +44,10 @@ app.post("/", (req, res) => {
       break;
 
   }
-
+  const phoneNumberRegEx = new RegExp('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')
+  if(phoneNumberRegEx.test(text)){
+    response = "CON Enter Amount"
+  }
   //sending response as plain text
   res.header("Content-type: text/plain").status(200).send(response);
 });
